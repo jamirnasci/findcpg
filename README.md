@@ -5,7 +5,13 @@ Script to locate cpg islands in genome
 
 (Exp): (citosine count) * (guanine count) / window size
 
-usage: CpG.py <sequence file> <min gc content> <min obs/exp> <window size>
+usage: CpG.py <sequence file> <min gc content> <min obs/exp> <window size> <move_option>
+
+move_option: if window is valid, is necessary choose a method to continue:
+
+  jump: go to next +(window_size) window
+  
+  slide: go to next nucleotide
 
 ## result:
 
