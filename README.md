@@ -1,5 +1,6 @@
 # findcpg
 Script to locate cpg islands in genome
+
 (Obs): CpG dinucleotide frequency in window.
 
 (Exp): (citosine count) * (guanine count) / window size
