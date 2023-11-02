@@ -1,11 +1,10 @@
 import sys
-import graphs
 import os
 
 def findCpg(sequence, window_size, min_gc, min_obs_exp):
   result = []
-
-  for i in range(0, len(sequence) - window_size):
+  i = 0
+  while i < len(sequence) - window_size:
     c_count  = 0
     g_count  = 0
     cg_count = 0
@@ -34,6 +33,9 @@ def findCpg(sequence, window_size, min_gc, min_obs_exp):
           "gc_content":gc_content
         }
       )
+      i += window_size
+    else:
+      i += 1
   return result
 
 if __name__ == '__main__':
@@ -62,10 +64,3 @@ if __name__ == '__main__':
     for result in res:
       print("Obs/Exp: {}\tGC Content: {}\tstart: {}\tend: {}".
             format(result["obs_exp"], result["gc_content"], result["start"], result["end"]))
-      x.append(result["start"])
-      gc_array.append(result["gc_content"])
-      obs_exp_array.append(result["obs_exp"])
-    
-    os.system("mkdir out")
-    graphs.build(x, gc_array, "GC CONTENT", "gc_graph.png")
-    graphs.build(x, obs_exp_array, "OBS / EXP", "obs_exp_graph.png")
